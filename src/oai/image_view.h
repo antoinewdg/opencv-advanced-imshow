@@ -90,6 +90,10 @@ namespace oai {
         m_img = RGBATransformer<T>::to_rgba(image);
         m_img_texture.create(m_img.cols, m_img.rows);
         m_img_texture.update(m_img.data);
+        auto s = sf::Vector2i(m_window.getSize()) - sf::Vector2i(m_img.cols, m_img.rows);
+        if (s.x > 0 && s.y > 0) {
+            m_image_view.move(-sf::Vector2f(s/2));
+        }
     }
 
     void ImageView::display() {
