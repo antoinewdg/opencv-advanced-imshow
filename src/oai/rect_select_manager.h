@@ -44,7 +44,7 @@ namespace oai {
 
             m_out << "Rect[" << p.x << ", " << p.y << " ; "
                   << q.x - 1 << ", " << q.y - 1 << "]  "
-                  << s.x << "x" << s.y << endl;
+                  << s.x << "x" << s.y << std::endl;
         }
 
         void on_mouse_move(const sf::Event::MouseMoveEvent &move_e) {

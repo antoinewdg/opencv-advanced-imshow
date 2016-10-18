@@ -90,7 +90,7 @@ namespace oai {
     };
 
     template<class T>
-    ImageView::ImageView(Mat_<T> image):
+    ImageView::ImageView(cv::Mat_<T> image):
             m_window(sf::VideoMode(image.cols, image.rows), "Image view"),
             m_drag_manager(m_window, m_image_view),
             m_zoom_manager(m_window, m_image_view),
