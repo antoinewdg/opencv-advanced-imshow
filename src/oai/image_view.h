@@ -6,12 +6,10 @@
 #define COPY_MOVE_DETECTOR_IMAGE_VIEW_H
 
 #include <opencv2/core/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
 
 #include <SFML/Graphics.hpp>
 
+#include "rgba_transformer.h"
 #include "zoom_manager.h"
 #include "drag_manager.h"
 #include "ui_manager.h"
@@ -98,8 +96,7 @@ namespace oai {
             m_ui_manager(m_window, m_image_view, std::cout),
             m_select_manager(m_window, m_image_view, std::cout) {
 
-        image = scaled_before_rgba(image);
-        cv::cvtColor(image, m_img, get_cvt_code<T>());
+        m_img = RGBATransformer<T>::to_rgba(image);
         m_img_texture.create(m_img.cols, m_img.rows);
         m_img_texture.update(m_img.data);
     }

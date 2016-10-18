@@ -10,6 +10,7 @@ set(SOURCE_FILES src/main.cpp
         src/oai/drag_manager.h
         src/oai/ui_manager.h
         src/oai/rect_select_manager.h
+        src/oai/rgba_transformer.h
         )
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
