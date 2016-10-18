@@ -1,12 +1,11 @@
-The skeleton I use for my OpenCV projects.
-Opens and displays the image in the path given as first argument.
+# Advanced OpenCV imshow
 
-## Building and running
+A custom made window I use to provide better functionality over the 
+default OpenCV imshow.
+Developed using the SFML 2 library.
 
-```bash
-mkdir bin
-cd bin
-cmake ..
-make
-./project_name ../files/lena_color_512.tif
-```
+Currently support:
+* zooming with the mouse wheel
+* dragging the image
+* printing current pixel coordinates
+* selecting a rectangle with right-click and printing its coordinates

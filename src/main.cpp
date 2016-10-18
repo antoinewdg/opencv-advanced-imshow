@@ -1,14 +1,15 @@
 #include <iostream>
 #include "utils.h"
-
+#include "oai/image_view.h"
 
 int main(int argc, char *argv[]) {
 
     if (argc < 2) {
-        cout << "Enter the image path as argument." << endl;
+        cerr << "Enter the image path as argument." << endl;
     }
     auto image = load_color(argv[1]);
-    display_and_block(image);
+    oai::ImageView view(image);
+    view.display();
 
     return 0;
 }
