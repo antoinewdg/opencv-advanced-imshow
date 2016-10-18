@@ -76,15 +76,6 @@ namespace oai {
         sf::View m_image_view, m_ui_view;
 
 
-        template<class T>
-        inline int get_cvt_code() {
-            return cv::COLOR_BGR2RGBA;
-        }
-
-        template<class T>
-        Mat_<T> scaled_before_rgba(Mat_<T> src) {
-            return src;
-        }
     };
 
     template<class T>
