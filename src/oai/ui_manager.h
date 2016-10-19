@@ -19,8 +19,10 @@ namespace oai {
      */
     class UiManager {
     public:
-        UiManager(sf::RenderWindow &window, const sf::View &image_view, std::ostream &out) :
-                m_window(window), m_image_view(image_view), m_out(out) {
+        UiManager(sf::RenderWindow &window, const sf::View &image_view,
+                  std::ostream &out, const cv::Mat_<Vec4b> &image) :
+                m_window(window), m_image_view(image_view), m_out(out),
+                m_image(image) {
         }
 
         void draw() {
@@ -41,14 +43,15 @@ namespace oai {
 
         inline void _print_current_pixel() {
             auto p = m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window), m_image_view);
-            m_out << std::floor(p.x) << ", " << std::floor(p.y) << std::endl;
+            int x = int(std::floor(p.x)), y = int(std::floor(p.y));
+            m_out << x << ", " << y << ": " << m_image(y, x) << std::endl;
         }
 
 
         sf::RenderWindow &m_window;
         const sf::View &m_image_view;
         std::ostream &m_out;
-
+        const cv::Mat_<Vec4b> &m_image;
     };
 }
 #endif //OPENCV_ADVANCED_IMSHOW_UI_MANAGER_H

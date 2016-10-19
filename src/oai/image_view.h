@@ -84,7 +84,7 @@ namespace oai {
             m_drag_manager(m_window, m_image_view),
             m_zoom_manager(m_window, m_image_view),
             m_ui_view(m_window.getDefaultView()),
-            m_ui_manager(m_window, m_image_view, std::cout),
+            m_ui_manager(m_window, m_image_view, std::cout, m_img),
             m_select_manager(m_window, m_image_view, std::cout) {
 
         m_img = RGBATransformer<T>::to_rgba(image);
@@ -92,7 +92,7 @@ namespace oai {
         m_img_texture.update(m_img.data);
         auto s = sf::Vector2i(m_window.getSize()) - sf::Vector2i(m_img.cols, m_img.rows);
         if (s.x > 0 && s.y > 0) {
-            m_image_view.move(-sf::Vector2f(s/2));
+            m_image_view.move(-sf::Vector2f(s / 2));
         }
     }
 
