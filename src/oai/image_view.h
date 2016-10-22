@@ -138,7 +138,7 @@ namespace oai {
                 }
             }
 
-            m_window.clear(sf::Color(0, 0, 0));
+            m_window.clear(sf::Color(255,0,255));
             m_window.setView(m_image_view);
             m_window.draw(sprite);
             m_select_manager.draw(m_window);
